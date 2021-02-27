@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Detalhes do time ${time.nome}</h1>
+
+
+<h3>Listagem dos jogadores</h3>
+<ul>
+#{list items:time.jogadores, as: 'jogador'}
+<li>${jogador.nome}</li>
+#{/list}
+</ul>

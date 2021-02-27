@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Cadastro de Jogador</h1>
+
+<form action="@{Jogadores.salvar}" method="post">
+
+<input type="hidden" name="jogador.id" value="${jogador?.id}" >
+
+Nome: <input type="text" name="jogador.nome" value="${jogador?.nome}"><br>
+
+Time: 
+<select name="jogador.time.id">
+	<option value=""> -- </option>
+	#{list items:times, as: 'time'}
+	<option value="${time.id}" #{if jogador?.time?.id == time?.id} selected #{/if}> ${time.nome} </option>	
+	#{/list}
+</select>
+<br>
+
+<input type="submit" value="Salvar">
+</form>

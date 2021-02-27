@@ -1,0 +1,13 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Listagem de Jogadores</h1>
+
+<a href="@{Jogadores.form}">Cadastrar novo jogador</a>
+
+<ul>
+#{list items:jogadores, as: 'jogador'}
+<li>${jogador.nome} | ${jogador?.time?.nome} | <a href="@{Jogadores.remover(jogador.id)}">Remover</a> | 
+											   <a href="@{Jogadores.editar(jogador.id)}">Editar</a>  |</li>
+#{/list}
+</ul>
